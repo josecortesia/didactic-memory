@@ -1,3 +1,12 @@
+<?php
+if (!isset($_SESSION)) {
+  session_start();
+}
+if (!$_SESSION['autorizado']) {
+  header("Location: index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -251,7 +260,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="logout.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Cerrar sesión</p>
                 </a>
