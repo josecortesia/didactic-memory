@@ -2,7 +2,7 @@ function validar_login (user,pass) {
 	$("#form_login #entrar").html('<i class="fa fa-spinner fa-spin" style="font-size:20px"></i>').addClass('disabled');
 	$.ajax({
 		url: '/app_server/server.php',
-		//dataType: 'json',
+		dataType: 'json',
 		data: {
 /*			method: 'GET',
 			url: 'http://api.thirdeye.cl',
