@@ -4,6 +4,9 @@ function validar_login (user,pass) {
 		url: '/app_server/server.php',
 		dataType: 'json',
 		data: {
+/*			method: 'GET',
+			url: 'http://api.thirdeye.cl',
+			data: false,*/
 			user: user,
 			pass: pass,
 		},
@@ -20,7 +23,7 @@ function validar_login (user,pass) {
 			$("#form_login #entrar .fa-spin").remove();
 			$("#form_login #entrar").html('Ingresar');
 			$("#form_login #entrar").removeClass('disabled');
-		}else{
+		}else{ //usuario valido
               $("#mensaje").html(
 				'<div class="alert alert-success alert-dismissible">'
 				    +'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
@@ -30,6 +33,7 @@ function validar_login (user,pass) {
 			$("#form_login #entrar .fa-spin").remove();
 			$("#form_login #entrar").html('Ingresar');
 			$("#form_login #entrar").removeClass('disabled');
+			window.location.href = 'main.php';
 		}
 
 
