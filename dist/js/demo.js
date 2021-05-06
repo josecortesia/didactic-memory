@@ -684,19 +684,6 @@
     $brand_variants.removeClass().addClass('custom-select mb-3 text-light border-0 ').addClass(active_brand_color)
   }
 
-$.ajax({
-  type: "GET",
-  url:"http://api.thirdeye.cl:8080/demo",
-  beforeSend: function(xhr){
-    
-  },
-  success: function(data) {
-    console.log(data);  
-  },
-  error: function() {
-
-  }
-});
 
 
 })(jQuery)

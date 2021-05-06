@@ -1,6 +1,6 @@
 <?php
 session_start();
-function con_api($user,$pass){
+/*function con_api($user,$pass){
 	$login = $user;
 	$password = $pass;
 	$url = 'http://api.thirdeye.cl';
@@ -22,12 +22,12 @@ function con_api($user,$pass){
 
 
 }
-con_api($_GET['user'],$_GET['pass']);
+con_api($_GET['user'],$_GET['pass']);*/
 
 
 
 
-/*function callAPI($method, $url, $data, $user,$pass){
+function callAPI($method, $url, $data, $user,$pass){
 	//echo $method, $url, $data, $user,$pass;
    $ch = curl_init();
    switch ($method){
@@ -42,20 +42,27 @@ con_api($_GET['user'],$_GET['pass']);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);			 					
          break;
       default:
-      	 //var_dump($data) ;
-         if ($data)
-            $url = sprintf("%s?%s", $url, http_build_query($data));
+      	 $url;
    }
    // OPTIONS:
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     curl_setopt($ch, CURLOPT_USERPWD, "$user:$pass");
+
    // EXECUTE:
    $result = curl_exec($ch);
    curl_close($ch);
-   echo $result;
 
+    $data = json_decode($result);
+	if (isset($data->detail)) {//usuario invalido
+		echo($result);
+	}else{//usuario valido
+		echo($result);
+		$_SESSION['autorizado'] = true;
+        $_SESSION['usuario'] = $user;
+
+	}
 }
 
-callAPI($_GET['method'],$_GET['url'],$_GET['data'], $_GET['user'],$_GET['pass']);*/
+callAPI($_GET['method'],$_GET['url'],$_GET['data'], $_GET['user'],$_GET['pass']);

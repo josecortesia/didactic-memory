@@ -4,9 +4,9 @@ function validar_login (user,pass) {
 		url: '/app_server/server.php',
 		dataType: 'json',
 		data: {
-/*			method: 'GET',
+			method: 'GET',
 			url: 'http://api.thirdeye.cl',
-			data: false,*/
+			data: false,
 			user: user,
 			pass: pass,
 		},
