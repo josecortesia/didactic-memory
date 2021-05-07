@@ -5,13 +5,13 @@ function validar_login (user,pass) {
 		dataType: 'json',
 		data: {
 			method: 'GET',
-			url: 'http://api.thirdeye.cl',
+			url: 'http://api.thirdeye.cl/users/',
 			data: false,
 			user: user,
 			pass: pass,
 		},
-	}).done(function(resp) {
-       console.log(resp);
+	}).done(function(resp, xhr, statusText) {
+       console.log(resp, xhr, statusText);
 
 		if (resp.detail != '' && resp.detail != undefined) {//Error usuario incorrecto
             $("#mensaje").html(

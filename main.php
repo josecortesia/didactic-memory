@@ -35,6 +35,12 @@ if (!$_SESSION['autorizado']) {
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
   <!-- ThirdEye App -->
   <link rel="stylesheet"  href="dist/css/style-teye.css">
+
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -267,7 +273,25 @@ if (!$_SESSION['autorizado']) {
               </li>
             </ul>
           </li>
-
+        <?php if ($_SESSION['staff']):?>   
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cogs"></i>
+              <p>
+                Administrador
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link" id="admin_staff">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Usuarios</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        <?php endif ;?>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -297,11 +321,11 @@ if (!$_SESSION['autorizado']) {
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
+      <div class="container-fluid" id="main_container">
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
-          <section class="col-lg-6 connectedSortable">
+          <section class="col-lg-6 connectedSortable" >
             <!-- Custom tabs (Charts with tabs)-->
             <div class="card card-default">
                 <div class="card-header">
@@ -424,11 +448,29 @@ if (!$_SESSION['autorizado']) {
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../../plugins/jszip/jszip.min.js"></script>
+<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+
+
+<!-- Js Project -->
+<script src="app_js/admin_staff.js"></script>
+
+
 </body>
 </html>

@@ -54,16 +54,7 @@
 
       <div id="mensaje" style='margin-top: 20px;'></div>
 
-      <div class="social-auth-links text-center mb-3">
-        <p>- O -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Inciar sesión con Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Inciar sesión con Google+
-        </a>
-      </div>
-      <!-- /.social-auth-links -->
+
 
       <p class="mb-1">
         <a href="recover-password.html">Olvidé mi contraseña</a>
