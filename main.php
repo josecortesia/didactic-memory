@@ -35,11 +35,16 @@ if (!$_SESSION['autorizado']) {
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
   <!-- ThirdEye App -->
   <link rel="stylesheet"  href="dist/css/style-teye.css">
+  <!--X-editable-->
+  <link href="plugins/editable/css/bootstrap-editable.css" rel="stylesheet">
+  <link href="plugins/editable/css/select2.css" rel="stylesheet">
+
+
 
   <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -325,68 +330,7 @@ if (!$_SESSION['autorizado']) {
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
-          <section class="col-lg-6 connectedSortable" >
-            <!-- Custom tabs (Charts with tabs)-->
-            <div class="card card-default">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    <i class="fas fa-child mr-1"></i>
-                    Información del Niño(a) o Adolescente.
-                  </h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body" style="position: relative; height: 300px;">
-                  <div id="infodisp">
-                    
-                  </div>
-
-                </div>
-                <!-- /.card-body -->
-              </div>
-            <!-- /.card -->
-            <!-- Custom tabs (Charts with tabs)-->
-            <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    <i class="fas fa-comments mr-1"></i>
-                    Notificaciones recientes
-                  </h3>
-                  <div class="card-tools">
-                    <ul class="nav nav-pills ml-auto">
-                      <li class="nav-item">
-                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Mensajes</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#sales-chart" data-toggle="tab">Alertas</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div><!-- /.card-header -->
-                <div class="card-body">
-                  <div class="tab-content p-0">
-                    <!-- Morris chart - Sales -->
-                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;">
-                        
-                        
-                            Hola 1
-
-
-                     </div>
-                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                      
-                        
-                            Hola 2
-
-
-                    </div>
-                  </div>
-                </div><!-- /.card-body -->
-              </div>
-              <!-- /.card -->
-          </section>
-          <!-- /.Left col -->
-          <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-6 connectedSortable">
+          <section class="col-lg-12 connectedSortable" >
             <!-- Custom tabs (Charts with tabs)-->
             <div class="card card-default">
                 <div class="card-header">
@@ -394,33 +338,287 @@ if (!$_SESSION['autorizado']) {
                     <i class="fas fa-mobile mr-1"></i>
                     Información del Dispositivo.
                   </h3>
+                <div class="card-tools">
+
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool">
+                    <i class="fas fa-sync"></i>
+                  </button>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body" style="position: relative; height: 300px;">
+                </div>
+
+              <!-- /.card-header -->
+              <div class="card-body"> 
                 
+                <div class="row">
+                  <div class="col-md-6">
+                    <strong><i class="fas fa-user mr-1"></i> Nombre y Apellido</strong>
+                    <p class="text-muted" id="name-child">
+                      Carlos Cortesia
+                    </p>
+                    <hr>
+                    <strong><i class="fas fa-calendar"></i> Edad</strong>
+                    <p class="text-muted" id="age-child">4 años</p>
+                    <hr>
+                    <strong><i class="fas fa-child"></i> Vinculo</strong>
+                    <p class="text-muted" id="vin-child">Hijo</p>
+                    <hr>
+                    <strong><i class="far fa-file-alt mr-1"></i> Notas adicionales</strong>
+                    <p class="text-muted" id="note-child">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                  </div>
+                  <div class="col-md-6">
+                      <strong><i class="fas fa-book mr-1"></i> ID</strong>
+                      <p class="text-muted">
+                        0001
+                      </p>
+                      <hr>
+                      <strong><i class="fas fa-mobile"></i> Modelo</strong>
+                      <p class="text-muted">Motorola</p>
+                      <hr>
+                      <strong><i class="fas fa-battery-full"></i> Bateria</strong>
+                      <p class="text-muted">98%</p>
+                      <hr>
+                      <strong><i class="fas fa-bell"></i> Ultima Actividad</strong>
+                      <p class="text-muted">10-05-2021 13:01:12</p>
+                  </div>
                 </div>
-                <!-- /.card-body -->
+
+
+              </div>
+              <!-- /.card-body -->
+
               </div>
             <!-- /.card -->
+          </section>
+          <!-- /.Left col -->
+        </div>
+        <!-- /.row (main row) -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-6 connectedSortable" >
+            <!-- Custom tabs (Charts with tabs)-->
+ 
+                        
+                        
+            <!-- DIRECT CHAT -->
+            <div class="card direct-chat direct-chat-primary">
+              <div class="card-header">
+                <h3 class="card-title">Notificaciones</h3>
+                <div class="card-tools">
+                  <span title="3 New Messages" class="badge badge-primary">3</span>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool">
+                    <i class="fas fa-sync"></i>
+                  </button>
+
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages" style="height:450px">
+                  <!-- Message. Default to the left -->
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-left">Alexander Pierce</span>
+                      <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      Is this template really for free? That's unbelievable!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-right">Sarah Bullock</span>
+                      <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      You better believe it!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+
+                  <!-- Message. Default to the left -->
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-left">Alexander Pierce</span>
+                      <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      Working with AdminLTE on a great new app! Wanna join?
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-right">Sarah Bullock</span>
+                      <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      I would love to.
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+
+                </div>
+                <!--/.direct-chat-messages-->
+
+                <!-- Contacts are loaded here -->
+                <div class="direct-chat-contacts">
+                  <ul class="contacts-list">
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="dist/img/user1-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            Count Dracula
+                            <small class="contacts-list-date float-right">2/28/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">How have you been? I was...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="dist/img/user7-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            Sarah Doe
+                            <small class="contacts-list-date float-right">2/23/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">I will be waiting for...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="dist/img/user3-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            Nadia Jolie
+                            <small class="contacts-list-date float-right">2/20/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">I'll call you back at...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="dist/img/user5-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            Nora S. Vans
+                            <small class="contacts-list-date float-right">2/10/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">Where is your new...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="dist/img/user6-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            John K.
+                            <small class="contacts-list-date float-right">1/27/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">Can I take a look at...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="dist/img/user8-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            Kenneth M.
+                            <small class="contacts-list-date float-right">1/4/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">Never mind I found...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                  </ul>
+                  <!-- /.contacts-list -->
+                </div>
+                <!-- /.direct-chat-pane -->
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!--/.direct-chat -->
+
+          </section>
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-6 connectedSortable">
 
             <!-- Custom tabs (Charts with tabs)-->
-            <div class="card card-default">
+            <div class="card card-default" >
                 <div class="card-header">
                   <h3 class="card-title">
                     <i class="fas fa-map-marker-alt mr-1"></i>
                     Última ubicación.
                   </h3>
+                <div class="card-tools">
+
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool">
+                    <i class="fas fa-sync"></i>
+                  </button>
+                </div>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body" style="position: relative; height: 300px;">
-  
+                <div class="card-body">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.3849060947628!2d-70.60772578426332!3d-33.51737690833752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d0644a4f08a1%3A0xfe55c9da95c82fe1!2sVicu%C3%B1a%20Mackenna%206839%2C%20La%20Florida%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1620675922221!5m2!1ses!2scl" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 <!-- /.card-body -->
               </div>
             <!-- /.card -->
-
-
-
           </section>
           <!-- right col -->
         </div>
@@ -448,28 +646,63 @@ if (!$_SESSION['autorizado']) {
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <!-- DataTables  & Plugins -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../plugins/jszip/jszip.min.js"></script>
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="plugins/jszip/jszip.min.js"></script>
+<script src="plugins/pdfmake/pdfmake.min.js"></script>
+<script src="plugins/pdfmake/vfs_fonts.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-
+<!--X-editable-->
+<script src="plugins/editable/js/moment.min.js"></script> 
+<script src="plugins/editable/js/bootstrap-editable.js"></script>
+<script src="plugins/editable/js/select2.js"></script>  
 
 <!-- Js Project -->
 <script src="app_js/admin_staff.js"></script>
+
+
+<script type="text/javascript">
+  
+$('#name-child').editable({
+    mode: 'inline',
+});
+
+$('#age-child').editable({
+    mode: 'inline',
+    type: 'number',
+});
+
+$('#vin-child').editable({
+    mode: 'inline',
+    type: 'select',
+    source: [
+        {value: 1, text: 'Familia'},
+        {value: 2, text: 'Conocido'},
+        {value: 3, text: 'Otros'},
+
+
+    ],
+});
+
+$('#note-child').editable({
+    mode: 'inline',
+    type: 'textarea'
+});
+
+</script>
 
 
 </body>

@@ -1,6 +1,6 @@
 <?php
 if (!isset($_SESSION)) {
-session_start();
+    session_start();
     $ch = curl_init();
 	$url = 'http://api.thirdeye.cl/users/';
 	$user = 'josecortesia';
@@ -22,7 +22,8 @@ session_start();
 		foreach ($rs as $index => $users_resp) {
 			$json_user = json_encode($users_resp);
 		}
-		echo '{"data":['.$json_user.']}';  
+		
+	echo '{"data":['.$json_user.']}';  
 
 }
 if (!$_SESSION['autorizado']) {
