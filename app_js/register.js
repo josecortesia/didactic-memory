@@ -1,5 +1,5 @@
 function validar_register (first_namer,last_namer,username,email,passwd) {
-	console.log('hola');
+
 	$("#form_register #register").html('<i class="fa fa-spinner fa-spin" style="font-size:20px"></i>').addClass('disabled');
 
 	var parametros = {
