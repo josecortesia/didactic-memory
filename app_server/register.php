@@ -7,11 +7,12 @@ curl_setopt($ch, CURLOPT_URL,"http://api.thirdeye.cl/users/");
 curl_setopt($ch, CURLOPT_POST, TRUE);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
 
 $result = curl_exec ($ch);
 curl_close ($ch);
 
-http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
+
 echo $result;
 
 }
