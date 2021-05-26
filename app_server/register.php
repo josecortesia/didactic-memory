@@ -1,6 +1,6 @@
 <?php
 
-function callAPI_Register($url, $data,){
+function callAPI_Register($url, $data){
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL,"http://api.thirdeye.cl/users/");
