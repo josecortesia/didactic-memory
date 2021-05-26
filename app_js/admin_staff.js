@@ -23,7 +23,7 @@ $("#main_container").replaceWith(
                   +'</tr>'
                 +'</thead>'
                + '<tbody>'
-                +'</tbody> '
+                +'</tbody>'
                 +'<tfoot>'
                   +'<tr>'
                    + '<th>url</th>'

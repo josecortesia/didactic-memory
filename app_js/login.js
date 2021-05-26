@@ -5,15 +5,29 @@ function validar_login (user,pass) {
 		//dataType: 'json',
 		data: {
 			method: 'GET',
-			url: 'http://api.thirdeye.cl/users/',
+			url: 'http://api.thirdeye.cl/user/',
 			data: false,
 			user: user,
 			pass: pass,
 		},
+   statusCode: {
+      200: function (response) {
+         alert('200');
+      },
+      403: function (response) {
+         alert('403');
+      },
+      404: function (response) {
+         alert('404');
+      }
+   }, success: function () {
+      alert('sin status');
+   },
 	}).done(function(resp, xhr, statusText) {
-       console.log(resp, xhr, statusText);
+       console.log(resp);
 
-	if (resp.detail != '' && resp.detail != undefined) {//Error usuario incorrecto
+
+/*	if (resp.detail != '' && resp.detail != undefined) {//Error usuario incorrecto
 	    $("#mensaje").html(
 			'<div class="alert alert-danger alert-dismissible">'
 			    +'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
@@ -34,7 +48,7 @@ function validar_login (user,pass) {
 		$("#form_login #entrar").html('Ingresar');
 		$("#form_login #entrar").removeClass('disabled');
 		window.location.href = 'main.php';
-	}
+	}*/
 
 	});
 }

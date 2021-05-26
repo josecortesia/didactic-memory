@@ -1,10 +1,10 @@
 <?php
-if (!isset($_SESSION)) {
-  session_start();
-}
-if (!$_SESSION['autorizado']) {
-  header("Location: index.php");
-}
+// if (!isset($_SESSION)) {
+//   session_start();
+// }
+// if (!$_SESSION['autorizado']) {
+//   header("Location: index.php");
+// }
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +38,6 @@ if (!$_SESSION['autorizado']) {
   <!--X-editable-->
   <link href="plugins/editable/css/bootstrap-editable.css" rel="stylesheet">
   <link href="plugins/editable/css/select2.css" rel="stylesheet">
-
 
 
   <!-- DataTables -->
@@ -154,19 +153,19 @@ if (!$_SESSION['autorizado']) {
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link" id=call>
                   <i class="fas fa-phone nav-icon"></i>
                   <p>Llamadas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link" id='sms'>
                   <i class="far fa-comments nav-icon"></i>
                   <p>SMS</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link" id='contact'>
                   <i class="far fa-address-book nav-icon"></i>
                   <p>Contactos</p>
                 </a>
@@ -175,7 +174,7 @@ if (!$_SESSION['autorizado']) {
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link" id="geo">
               <i class="nav-icon fas fa-map-marker-alt"></i>
               <p>
                 Geolocalización
@@ -184,13 +183,13 @@ if (!$_SESSION['autorizado']) {
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link" id='locale'>
                   <i class="fas fa-location-arrow nav-icon"></i>
                   <p>Localización</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link" id='tracking'>
                   <i class="fas fa-map-marked nav-icon"></i>
                   <p>Tracking Historial</p>
                 </a>
@@ -207,13 +206,13 @@ if (!$_SESSION['autorizado']) {
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link" id='whatsapp'>
                   <i class="fab fa-whatsapp nav-icon"></i>
                   <p>Proxy Whatsapp</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link" id='messanger'>
                 <i class="fab fa-facebook-messenger nav-icon"></i>
                   <p>Proxy Messanger</p>
                 </a>
@@ -221,7 +220,7 @@ if (!$_SESSION['autorizado']) {
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link" id='antibull'>
               <i class="nav-icon fas fa-user-secret"></i>
               <p>
                 Anti-Bulling
@@ -230,13 +229,13 @@ if (!$_SESSION['autorizado']) {
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link" id="histo">
                   <i class="fas fa-history nav-icon"></i>
                   <p>Historial Garabatos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link" id="alertas">
                   <i class="fas fa-exclamation-triangle nav-icon"></i>
                   <p>Alertas</p>
                 </a>
@@ -244,7 +243,7 @@ if (!$_SESSION['autorizado']) {
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link" id="config">
               <i class="nav-icon fas fa-cogs"></i>
               <p>
                 Ajustes
@@ -253,13 +252,13 @@ if (!$_SESSION['autorizado']) {
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link" id="notify">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Notificaciones</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link" id="products">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Productos</p>
                 </a>
@@ -324,9 +323,10 @@ if (!$_SESSION['autorizado']) {
     </div>
     <!-- /.content-header -->
 
+<div id="main-container"> 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid" id="main_container">
+      <div class="container-fluid">
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
@@ -626,6 +626,8 @@ if (!$_SESSION['autorizado']) {
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+</div>
+
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -672,6 +674,9 @@ if (!$_SESSION['autorizado']) {
 
 <!-- Js Project -->
 <script src="app_js/admin_staff.js"></script>
+<script src="app_js/call.js"></script>
+<script src="app_js/sms.js"></script>
+
 
 
 <script type="text/javascript">
