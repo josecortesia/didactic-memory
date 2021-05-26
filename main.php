@@ -1,10 +1,10 @@
 <?php
-// if (!isset($_SESSION)) {
-//   session_start();
-// }
-// if (!$_SESSION['autorizado']) {
-//   header("Location: index.php");
-// }
+if (!isset($_SESSION)) {
+   session_start();
+ }
+ if (!$_SESSION['autorizado']) {
+   header("Location: index.php");
+ }
 ?>
 
 <!DOCTYPE html>

@@ -26,9 +26,9 @@
     <div class="card-body register-card-body">
       <p class="login-box-msg">Registrarse</p>
 
-      <form action="index.html" method="post">
+      <form id="form_register" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nombre">
+          <input type="text" class="form-control" placeholder="Nombre" id="first_namer">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -36,7 +36,23 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="text" class="form-control" placeholder="Apellido" id="last_namer">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Usuario" id="username">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="Email" id="email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -44,21 +60,21 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Contraseña">
+          <input type="password" class="form-control" placeholder="Contraseña" id="passwd">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
+<!--         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Repetir contraseña">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="row">
           <div class="col-12">
             <div class="icheck-primary">
@@ -70,11 +86,13 @@
           </div>
           <!-- /.col -->
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+            <!-- <button type="submit" class="btn btn-primary btn-block">Registrarse</button> -->
+            <button type="button" id="register" class="btn btn-primary btn-block">Registrarse</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
+      <div id="mensaje" style='margin-top: 20px;'></div>
 
       <a href="index.php" class="text-center">Ya estoy registrado (a)</a>
     </div>
@@ -89,5 +107,6 @@
 <script src="/../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/../../dist/js/adminlte.min.js"></script>
+<script src="app_js/register.js"></script>
 </body>
 </html>

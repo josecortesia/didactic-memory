@@ -1,56 +1,46 @@
 function validar_login (user,pass) {
+	
 	$("#form_login #entrar").html('<i class="fa fa-spinner fa-spin" style="font-size:20px"></i>').addClass('disabled');
+	
 	$.ajax({
 		url: '/app_server/server.php',
-		//dataType: 'json',
+		dataType: 'json',
 		data: {
 			method: 'GET',
 			url: 'http://api.thirdeye.cl/user/',
 			data: false,
 			user: user,
 			pass: pass,
-		},
-   statusCode: {
-      200: function (response) {
-         alert('200');
-      },
-      403: function (response) {
-         alert('403');
-      },
-      404: function (response) {
-         alert('404');
-      }
-   }, success: function () {
-      alert('sin status');
-   },
-	}).done(function(resp, xhr, statusText) {
-       console.log(resp);
-
-
-/*	if (resp.detail != '' && resp.detail != undefined) {//Error usuario incorrecto
-	    $("#mensaje").html(
-			'<div class="alert alert-danger alert-dismissible">'
-			    +'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
-	                +'<h6><i class="icon fa fa-ban"></i>'+resp.detail+'</h6>'
-	        +'</div>'
-	      );
-		$("#form_login #entrar .fa-spin").remove();
-		$("#form_login #entrar").html('Ingresar');
-		$("#form_login #entrar").removeClass('disabled');
-	}else{ //usuario valido
-	      $("#mensaje").html(
+	},
+   	statusCode: {
+      200: function (resp) {
+         $("#mensaje").html(
 			'<div class="alert alert-success alert-dismissible">'
 			    +'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
 	                +'<h6><i class="icon fa fa-check"></i>Inicio de sesión exitoso</h6>'
 	        +'</div>'
-	      );
+	    );
 		$("#form_login #entrar .fa-spin").remove();
 		$("#form_login #entrar").html('Ingresar');
 		$("#form_login #entrar").removeClass('disabled');
 		window.location.href = 'main.php';
-	}*/
-
-	});
+      },
+      403: function (resp) {
+		$("#mensaje").html(
+			'<div class="alert alert-danger alert-dismissible">'
+				+'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
+				+'<h6><i class="icon fa fa-ban"></i>'+resp.responseJSON.detail+'</h6>'
+			+'</div>'
+		);
+		$("#form_login #entrar .fa-spin").remove();
+		$("#form_login #entrar").html('Ingresar');
+		$("#form_login #entrar").removeClass('disabled');
+      },
+	  404: function (resp) {
+	    alert('404');
+	  }
+   },
+   });
 }
 
 //documento cargado
@@ -70,11 +60,5 @@ $(document).ready(function() {
 			validar_login(user,pass);
 		}
 	});
-
-
-
-
-
-
 
 });

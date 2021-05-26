@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 session_start();
 function callAPI($method, $url, $data, $user,$pass){
   //echo $method, $url, $data, $user,$pass;
-   $ch = curl_init();
+  $ch = curl_init();
    switch ($method){
       case "POST":
          curl_setopt($ch, CURLOPT_POST, 1);
@@ -18,12 +18,12 @@ function callAPI($method, $url, $data, $user,$pass){
          break;
       default:
          $url;
-   }
+  }
    // OPTIONS:
   curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-   curl_setopt($ch, CURLOPT_USERPWD, "$user:$pass");
+  curl_setopt($ch, CURLOPT_USERPWD, "$user:$pass");
   curl_getinfo($ch, CURLINFO_HTTP_CODE);
   
    // EXECUTE:
@@ -31,29 +31,27 @@ function callAPI($method, $url, $data, $user,$pass){
   curl_close($ch);
   $data = json_decode($result);
   http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
-   if (isset($data->detail)){//usuario invalido
-
-  echo $result;
-
-
-  }else{//usuario valido
-
+  $httpcode = http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
+  
+  if ($httpcode == 403){//usuario invalido
+      echo $result;
+  }
+  if ($httpcode == 200){//usuario valido
     $rs = $data->results;
       foreach ($rs as $index => $users_resp) {
-            if ($users_resp->username === $user) 
-              $_SESSION['autorizado'] = true;
-              $_SESSION['usuario'] = $users_resp->first_name;
-              $_SESSION['staff'] = false;
-
-      }
+        if ($users_resp->username === $user) 
+          $_SESSION['autorizado'] = true;
+          $_SESSION['usuario'] = $users_resp->first_name;
+          $_SESSION['staff'] = false;
+    }
     echo $result;
   }
 
 }
 
+
+
 callAPI($_GET['method'],$_GET['url'],$_GET['data'], $_GET['user'],$_GET['pass']);
-
-
 
 
 
