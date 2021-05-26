@@ -21,7 +21,6 @@ function validar_register (first_namer,last_namer,username,email,passwd) {
 	   	statusCode: {
 		    201: function (resp) {
 					console.log(resp);
-					alert('201');
 					$("#mensaje").html(
 						'<div class="alert alert-success alert-dismissible">'
 						    +'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
