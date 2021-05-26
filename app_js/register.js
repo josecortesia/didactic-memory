@@ -1,6 +1,6 @@
 function validar_register (first_namer,last_namer,username,email,passwd) {
 
-	//$("#form_register #register").html('<i class="fa fa-spinner fa-spin" style="font-size:20px"></i>').addClass('disabled');
+	$("#form_register #register").html('<i class="fa fa-spinner fa-spin" style="font-size:20px"></i>').addClass('disabled');
 
 	var parametros = {
 	    "first_name" : first_namer,
