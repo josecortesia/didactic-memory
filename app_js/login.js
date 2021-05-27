@@ -7,7 +7,7 @@ function validar_login (user,pass) {
 		dataType: 'json',
 		data: {
 			method: 'GET',
-			url: 'http://api.thirdeye.cl/user/',
+			url: 'http://api.thirdeye.cl/users/',
 			data: false,
 			user: user,
 			pass: pass,
