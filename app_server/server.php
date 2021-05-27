@@ -24,14 +24,14 @@ function callAPI($method, $url, $data, $user,$pass){
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
   curl_setopt($ch, CURLOPT_USERPWD, "$user:$pass");
-  curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  $httpcode = http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
   
    // EXECUTE:
   $result = curl_exec($ch);
   curl_close($ch);
+  
   $data = json_decode($result);
-  http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
-  $httpcode = http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
+
   
   if ($httpcode == 403){//usuario invalido
       echo $result;
