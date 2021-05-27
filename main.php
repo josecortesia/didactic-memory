@@ -356,14 +356,14 @@ if (!isset($_SESSION)) {
                   <div class="col-md-6">
                     <strong><i class="fas fa-user mr-1"></i> Nombre y Apellido</strong>
                     <p class="text-muted" id="name-child">
-                      Carlos Cortesia
+                      <?php echo $_SESSION['name']; ?>
                     </p>
                     <hr>
                     <strong><i class="fas fa-calendar"></i> Edad</strong>
-                    <p class="text-muted" id="age-child">4 años</p>
+                    <p class="text-muted" id="age-child"><?php echo $_SESSION['birthdate']; ?></p>
                     <hr>
                     <strong><i class="fas fa-child"></i> Vinculo</strong>
-                    <p class="text-muted" id="vin-child">Hijo</p>
+                    <p class="text-muted" id="vin-child"><?php echo $_SESSION['relation']?></p>
                     <hr>
                     <strong><i class="far fa-file-alt mr-1"></i> Notas adicionales</strong>
                     <p class="text-muted" id="note-child">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
@@ -375,13 +375,13 @@ if (!isset($_SESSION)) {
                       </p>
                       <hr>
                       <strong><i class="fas fa-mobile"></i> Modelo</strong>
-                      <p class="text-muted">Motorola</p>
+                      <p class="text-muted"><?php echo $_SESSION['model']; ?></p>
                       <hr>
                       <strong><i class="fas fa-battery-full"></i> Bateria</strong>
-                      <p class="text-muted">98%</p>
+                      <p class="text-muted"><?php echo $_SESSION['battery']."%"; ?></p>
                       <hr>
                       <strong><i class="fas fa-bell"></i> Ultima Actividad</strong>
-                      <p class="text-muted">10-05-2021 13:01:12</p>
+                      <p class="text-muted"><?php echo $_SESSION['last_activity']; ?></p>
                   </div>
                 </div>
 
