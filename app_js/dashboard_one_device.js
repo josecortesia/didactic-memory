@@ -12,7 +12,8 @@ $( "#dashboard" ).click(function() {
                 age = today.getFullYear()- birthdate.getFullYear();
                 console.log(age);
                 $("#main-container").replaceWith(
-                    '<section class="content">'
+                    '<div id="main-container">'
+                    +'<section class="content">'
                     +'  <div class="container-fluid">'
                     +'    <!-- Main row -->'
                     +'    <div class="row">'
@@ -309,7 +310,8 @@ $( "#dashboard" ).click(function() {
             }else{
 
                 $("#main-container").replaceWith(
-                '<section class="content">'
+                '<div id="main-container">'
+                +'<section class="content">'
                 +'      <div class="container-fluid">'
                 +'        <!-- Main row -->'
                 +'        <div class="row">'
@@ -353,7 +355,7 @@ $( "#dashboard" ).click(function() {
                 +'        <!-- /.row (main row) -->'
                 +'      </div><!-- /.container-fluid -->'
                 +'    </section>'
-
+                +'</div>'
                 );
             }
         }

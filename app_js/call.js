@@ -2,7 +2,8 @@ $( "#call" ).click(function() {
   event.preventDefault();
 
 $("#main-container").replaceWith(
-    '<section class="content">'
+  '<div id="main-container">'
+    +'<section class="content">'
       +'<div class="container-fluid">'
         +'<div class="row">'
           +'<div class="col-12">'
@@ -108,7 +109,7 @@ $("#main-container").replaceWith(
         +'</div>'
       +'</div>'
     +'</section>'
-
+      +'</div>'
 );
 
 

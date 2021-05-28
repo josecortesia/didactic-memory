@@ -4,8 +4,8 @@ $( "#sms" ).click(function() {
 $("#main-container").replaceWith(
     
 
-
-    '<section class="content">'
+'<div id="main-container">'
+    +'<section class="content">'
       +'<div class="container-fluid">'
         +'<div class="row">'
 
@@ -200,7 +200,7 @@ $("#main-container").replaceWith(
        +'</div>'
       +'</div>'
     +'</section>'
-
++'</div>'
 
 
 );
