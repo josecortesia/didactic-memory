@@ -4,6 +4,37 @@ if (!isset($_SESSION)) {
 session_start();
 
 
+function callAPI_Dashboard($user,$pass){
+
+
+      $device = callAPI_Device($user,$pass);
+      $data_device = json_decode($device);
+
+        if ($data_device->count > 0){
+          //datos de dependiente
+          $data_device->results[0]->dependant_id;
+          $url_dependant = $data_device->results[0]->dependant_id;
+          $dependet = callAPI_Dependent($user,$pass,$url_dependant);
+          $data_dependet = json_decode($dependet);
+
+          //datos de relation
+          $url_relation = $data_dependet->relation;
+          $relation = callAPI_Relations($user,$pass,$url_relation);
+          $data_relation = json_decode($relation);
+
+          $obj_merged = (object) array_merge( (array) $data_device, (array) $data_dependet, (array) $data_relation);
+          //relation device dependant merge json
+          $json_merged = json_encode($obj_merged);
+          echo $json_merged;
+
+        }else{
+
+          echo $device;
+
+        }
+
+}
+
 function callAPI_Relations($user,$pass,$url_relation){
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$url_relation);
@@ -56,20 +87,7 @@ return $rs;
 function callAPI_Login($method, $url, $data, $user,$pass){
   //echo $method, $url, $data, $user,$pass;
   $ch = curl_init();
-   switch ($method){
-      case "POST":
-         curl_setopt($ch, CURLOPT_POST, 1);
-         if ($data)
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-         break;
-      case "PUT":
-         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-         if ($data)
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                
-         break;
-      default:
-         $url;
-  }
+
    // OPTIONS:
   curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -100,60 +118,10 @@ function callAPI_Login($method, $url, $data, $user,$pass){
           $_SESSION['usuario'] = $users_resp->first_name;
           $_SESSION['id_representant'] = $users_resp->id;
           $_SESSION['staff'] = false;
+          $_SESSION['user'] = $user;
+          $_SESSION['passwd'] = $pass;
         }
       echo $result;
-
-      $device = callAPI_Device($user,$pass);
-      $data_device = json_decode($device);
-
-
-        if ($data_device->count > 0){
-
-          $rs = $data_device->results;
-          foreach ($rs as $index => $users_device) {
-              ////datos del dispositivo para las sesiones
-              echo  $users_device->model;
-              echo  $users_device->battery;
-              echo  $users_device->latitide;
-              echo  $users_device->longitude;
-              echo  $users_device->last_activity;
-              echo  $users_device->dependant_id;
-              echo  $users_device->user_id;
-
-
-              $url_dependant = $users_device->dependant_id;
-              $dependet = callAPI_Dependent($user,$pass,$url_dependant);
-              $data_dependet = json_decode($dependet);
-
-              ////datos del apoderado para las sesiones
-              echo  $data_dependet->name;
-              echo  $data_dependet->birthdate;
-              echo  $data_dependet->responsible;
-              
-
-              $url_relation = $data_dependet->relation;
-              $relation = callAPI_Relations($user,$pass,$url_relation);
-              $data_relation = json_decode($relation);
-
-              ////datos de las relaciones
-              echo  $data_relation->url;
-              echo  $data_relation->relation;
-              echo  $data_relation->description;
-
-
-
-
-          }
-          echo  $data_device->count;
-        }else{
-
-          echo   $data_device->count;
-
-        }
-      
-
-
-
       
   }
 
@@ -163,8 +131,14 @@ function callAPI_Login($method, $url, $data, $user,$pass){
 
 
 
+if ($_GET['resp']==1 and isset($_GET['resp'])) {
+  callAPI_Login($_GET['method'],$_GET['url'],$_GET['data'], $_GET['user'],$_GET['pass']);
 
-callAPI_Login($_GET['method'],$_GET['url'],$_GET['data'], $_GET['user'],$_GET['pass']);
+}
+
+if ($_GET['resp']==2 and isset($_GET['resp'])) {
+  callAPI_Dashboard($_SESSION['user'],$_SESSION['passwd']);
+}
 
 
 

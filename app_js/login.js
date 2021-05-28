@@ -3,8 +3,8 @@ function validar_login (user,pass) {
 	$("#form_login #entrar").html('<i class="fa fa-spinner fa-spin" style="font-size:20px"></i>').addClass('disabled');
 	
 	$.ajax({
-		url: '/app_server/server.php',
-		//dataType: 'json',
+		url: '/app_server/server.php?resp=1',
+		dataType: 'json',
 		data: {
 			method: 'GET',
 			url: 'http://api.thirdeye.cl/users/',
@@ -15,7 +15,7 @@ function validar_login (user,pass) {
    	statusCode: {
       200: function (resp) {
       	console.log(resp);
-/*         $("#mensaje").html(
+         $("#mensaje").html(
 			'<div class="alert alert-success alert-dismissible">'
 			    +'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
 	                +'<h6><i class="icon fa fa-check"></i>Inicio de sesión exitoso</h6>'
@@ -24,11 +24,12 @@ function validar_login (user,pass) {
 		$("#form_login #entrar .fa-spin").remove();
 		$("#form_login #entrar").html('Ingresar');
 		$("#form_login #entrar").removeClass('disabled');
-		window.location.href = 'main.php';*/
+		window.location.href = 'main.php';
+        
       },
       403: function (resp) {
       	console.log(resp);
-/*		$("#mensaje").html(
+		$("#mensaje").html(
 			'<div class="alert alert-danger alert-dismissible">'
 				+'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
 				+'<h6><i class="icon fa fa-ban"></i>'+resp.responseJSON.detail+'</h6>'
@@ -36,7 +37,7 @@ function validar_login (user,pass) {
 		);
 		$("#form_login #entrar .fa-spin").remove();
 		$("#form_login #entrar").html('Ingresar');
-		$("#form_login #entrar").removeClass('disabled');*/
+		$("#form_login #entrar").removeClass('disabled');
       },
 	  404: function (resp) {
 	    alert('404');
@@ -64,3 +65,5 @@ $(document).ready(function() {
 	});
 
 });
+
+

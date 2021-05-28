@@ -1,1 +1,8 @@
 .brand-link .brand-image{float: none !important;}
+.cod-qr{width:30%;}
+.qr-download{
+	margin: auto;
+	text-align: center;
+	max-width: 1024px;
+}
+
